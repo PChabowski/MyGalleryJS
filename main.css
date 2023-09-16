@@ -30,7 +30,6 @@ body {margin: 0;}
 #gallery img { margin: 5px; }
 
 #modal-content {
-	/* display: none;*/
 	align-items: center;
 	flex-direction: column;
 	background-color: rgba(0, 0, 0, 0.9);
@@ -52,7 +51,7 @@ body {margin: 0;}
 }
 
 .img-vertic {
-max-width: 750px;
+	max-width: 750px;
 }
 .img-horiz {
 	max-width: 1500px;
