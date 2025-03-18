@@ -1,25 +1,46 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
 	<meta charset="utf-8">
 	<title>My Gallery JS</title>
-	
+
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="main.css" rel="stylesheet">
+	<link href="image-viewer.css" rel="stylesheet">
+
+	<!-- <script src="MyGalleryJS.js"></script> -->
 </head>
+
 <body>
 	<main id="content">
-		<div id="gallery"></div>
-		<div id="modal-content" class="modal-close">
-			<div id="modal-menu">
-				<span class="btn-close">&times;</span>
+		<div class="gallery photos">
+			<div class="column">
+				<img src="min/IMG_7047.jpg">
+				<img src="min/426A7187.jpg">
+				<img src="min/IMG_7038.jpg">
 			</div>
-			<div id="view">
-				<img id="modalImg" class="img-vertic" src="photos/IMG_7038.jpg">		
+			<div class="column">
+				<img src="min/IMG_7050.jpg">
+				<img src="min/426A7168.jpg">
+				<img src="min/426A7148.jpg">
+				<img src="min/426A7147.jpg">
+
 			</div>
-			<div id="caption">Snieg</div>
+			<div class="column">
+				<img src="min/426A7158.jpg">
+				<img src="min/IMG_7033.jpg">
+				<img src="min/426A7162.jpg">
+				<img src="min/426A7163.jpg">
+			</div>
+			<div class="column">
+				<img src="min/426A7152.jpg">
+				<img src="min/426A7165.jpg">
+				<img src="min/426A7151.jpg">
+			</div>
 		</div>
 	</main>
-	<script src="MyGalleryJS.js"></script>
+
 </body>
+
 </html>
