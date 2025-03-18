@@ -9,7 +9,7 @@ window.onload = () => {
 	pohotosList.forEach((element, index) => {
 		element.addEventListener("click", function () {
 			imageViewer.classList.add("show-image");
-			photoView.src = element.src
+			photoView.src = element.src.replace('min',"photos")
 			currentImage = index
 			console.log(element.src);
 		})
@@ -30,13 +30,13 @@ window.onload = () => {
 	function nextImage() {
 		currentImage++;
 		if (currentImage > maxNumberImage) currentImage = 0;
-		photoView.src = pohotosList[currentImage].src;
+		photoView.src = pohotosList[currentImage].src.replace('min',"photos");
 	}
 
 	function previousImage() {
 		currentImage--;
 		if (currentImage < 0) currentImage = maxNumberImage;
-		photoView.src = pohotosList[currentImage].src;
+		photoView.src = pohotosList[currentImage].src.replace('min',"photos");
 	}
 
 	window.addEventListener('keydown', (e) => {

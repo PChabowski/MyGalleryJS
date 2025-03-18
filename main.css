@@ -14,7 +14,7 @@ body {
 	width: 100%;
 	height: auto;
 	margin-bottom: 1rem;
-	cursor: pointer;
+	cursor: zoom-in;
 }
 
 .column {
