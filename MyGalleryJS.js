@@ -11,6 +11,7 @@ window.onload = () => {
 			imageViewer.classList.add("show-image");
 			photoView.src = changeDirectory(element);
 			currentImage = index
+			counterDisplay(index);
 		})
 
 	});
@@ -25,6 +26,7 @@ window.onload = () => {
 		currentImage++;
 		if (currentImage > maxNumberImage) currentImage = 0;
 		photoView.src = changeDirectory(pohotosList[currentImage]);
+		counterDisplay(currentImage);
 	});
 
 	const previousButton = document.querySelector('#previous-button');
@@ -32,10 +34,16 @@ window.onload = () => {
 		currentImage--;
 		if (currentImage < 0) currentImage = maxNumberImage;
 		photoView.src = changeDirectory(pohotosList[currentImage]);
+		counterDisplay(currentImage);
 	});
 
 	function changeDirectory(image) {
 		return image.src.replace('min', "photos");
+	}
+
+	function counterDisplay(index) {
+		const counter = document.querySelector('.counter');
+		counter.innerHTML = `${index + 1} / ${maxNumberImage + 1}`;
 	}
 
 	
