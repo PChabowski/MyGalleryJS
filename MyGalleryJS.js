@@ -9,7 +9,7 @@ window.onload = () => {
 	pohotosList.forEach((element, index) => {
 		element.addEventListener("click", function () {
 			imageViewer.classList.add("show-image");
-			photoView.src = element.src.replace('min', "photos")
+			photoView.src = changeDirectory(element);
 			currentImage = index
 		})
 
@@ -24,17 +24,21 @@ window.onload = () => {
 	nextButton.addEventListener("click", () => {
 		currentImage++;
 		if (currentImage > maxNumberImage) currentImage = 0;
-		photoView.src = pohotosList[currentImage].src.replace('min', "photos");
+		photoView.src = changeDirectory(pohotosList[currentImage]);
 	});
 
 	const previousButton = document.querySelector('#previous-button');
 	previousButton.addEventListener("click", () => {
 		currentImage--;
 		if (currentImage < 0) currentImage = maxNumberImage;
-		photoView.src = pohotosList[currentImage].src.replace('min', "photos");
+		photoView.src = changeDirectory(pohotosList[currentImage]);
 	});
 
+	function changeDirectory(image) {
+		return image.src.replace('min', "photos");
+	}
 
+	
 	window.addEventListener('keydown', (e) => {
 		if (imageViewer.classList.contains("show-image")) {
 			switch (e.key) {
