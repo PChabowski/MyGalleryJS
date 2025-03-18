@@ -1,53 +1,53 @@
-window.onload = () => {
-	addImage(nameImage);
-	closeModal();
-};
+const pohotosList = document.querySelectorAll('.photos img');
+const maxNumberImage = pohotosList.length - 1;
+let currentImage;
 
-const nameImage = ["426A7148.jpg", "426A7147.jpg", "426A7151.jpg", "426A7152.jpg", "426A7158.jpg", "426A7162.jpg", "426A7163.jpg", "426A7165.jpg", "426A7187.jpg", "IMG_7047.jpg", "IMG_7038.jpg", "IMG_7033.jpg", "426A7168.jpg", "IMG_7050.jpg"];
+const imageViewer = document.querySelector('.image-viewer');
+const photoView = document.querySelector('.photo img');
 
-const addImage = (nameImage) => {
-	const gal = document.getElementById("gallery");
-	for (let i=0; i<nameImage.length; i++) {
-		gal.innerHTML += `<img id="img${i}" src="min/${nameImage[i]}">`;
+pohotosList.forEach((element, index) => {
+	element.addEventListener("click", function () {
+		imageViewer.style.display = "block";
+		photoView.src = element.src
+		currentImage = index
+		console.log(currentImage);
+	})
+
+});
+
+const closeButton = document.querySelector('#close-button');
+closeButton.addEventListener("click", function () {
+	imageViewer.style.display = "none";
+});
+
+const nextButton = document.querySelector('#next-button');
+nextButton.addEventListener("click", nextImage);
+
+const previousButton = document.querySelector('#previous-button');
+previousButton.addEventListener("click", previousImage);
+
+function nextImage() {
+	currentImage++;
+	if (currentImage > maxNumberImage) currentImage = 0;
+	photoView.src = pohotosList[currentImage].src;
+}
+
+function previousImage() {
+	currentImage--;
+	if (currentImage < 0) currentImage = maxNumberImage;
+	photoView.src = pohotosList[currentImage].src;
+}
+
+window.addEventListener('keydown', (e) => {
+	switch (e.keyCode) {
+		case 27:
+			closeButton.click();
+			break;
+		case 37:
+			previousImage();
+			break;
+		case 39:
+			nextImage();
+			break;
 	}
-	onclickToImg();
-}
-
-const onclickToImg = () => {
-	const gal = document.getElementById("gallery");
-	const images = gal.getElementsByTagName("img");
-	for (let i = 0; i < images.length; i++) {
-		images[i].onclick = check;
-	}
-}
-
-const imgChang = (img) => {
-	const picture = document.getElementById("modalImg");
-	const src = img.src;
-	const newSrc = src.replace("/min", "/photos");
-	picture.src = newSrc;
-	openModal();
-}
-
-const openModal = () => {
-	const modal = document.getElementById("modal-content");
-	modal.classList.replace("modal-close", "modal-open");
-}
-
-const closeModal = () => {
-	const modal = document.getElementById("modal-content");
-	const close = document.getElementsByClassName("btn-close")[0];
-	close.onclick = function() {
-		modal.classList.replace("modal-open", "modal-close");
-	}
-}
-
-const check = (img)  => {
-	const picture = document.getElementById("modalImg");
-	if (img.target.height < 250){
-		picture.classList.replace("img-vertic", "img-horiz");
-	} else {
-		picture.classList.replace("img-horiz", "img-vertic");
-	}
-	imgChang(img.target);
-}
+});
