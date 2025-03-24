@@ -1,7 +1,10 @@
+.image-viewer {
+	display: none;
+}
+
 @media only screen and (min-width: 1100px) {
 
 	.image-viewer {
-		display: none;
 		background-color: rgba(0, 0, 0, 0.8);
 		color: #fff;
 		position: fixed;
