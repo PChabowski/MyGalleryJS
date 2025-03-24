@@ -12,6 +12,7 @@ window.onload = () => {
 			photoView.src = changeDirectory(element);
 			currentImage = index
 			counterDisplay(index);
+			hiddenScroll();
 		})
 
 	});
@@ -19,6 +20,7 @@ window.onload = () => {
 	const closeButton = document.querySelector('#close-button');
 	closeButton.addEventListener("click", function () {
 		imageViewer.classList.remove("show-image");
+		showScroll();
 	});
 
 	const nextButton = document.querySelector('#next-button');
@@ -46,7 +48,16 @@ window.onload = () => {
 		counter.innerHTML = `${index + 1} / ${maxNumberImage + 1}`;
 	}
 
+	function hiddenScroll() {
+		const scroll = document.querySelector('body');
+		scroll.classList.add('hidden-scroll');
+	}
 	
+	function showScroll() {
+		const scroll = document.querySelector('body');
+		scroll.classList.remove('hidden-scroll');
+	}
+
 	window.addEventListener('keydown', (e) => {
 		if (imageViewer.classList.contains("show-image")) {
 			switch (e.key) {

@@ -55,4 +55,8 @@
 		display: block;
 	}
 
+	.hidden-scroll {
+		overflow: hidden;
+	}
+
 }
