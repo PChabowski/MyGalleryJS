@@ -34,10 +34,12 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		height: 90%;
 	}
 	
 	.image-viewer > .photo img {
 		max-height: 90vh;
+		max-width: 86%;
 		width: auto;		
 	}
 
